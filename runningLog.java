@@ -16,7 +16,7 @@ public class runningLog {
             double timeInMinutes = input.nextDouble();
 
             double averagePace = timeInMinutes / distanceInMiles;
-            System.out.println("The average pace is " + String.format("%.1f", averagePace)); //String.format("%.1f" is for decimal rounding
+            System.out.println("The average pace is " + String.format("%.1f", averagePace)); //String.format("%.1f" is for decimal rounding!
 
         }
     }
