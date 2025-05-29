@@ -2,24 +2,34 @@ import java.util.Scanner;
 
 public class runningLog {
     public static void main(String[] args) {
-        int numberOfRun;
-        double distance;
-        double time;
-        System.out.println("How many runs did you go on?");
-        Scanner input = new Scanner(System.in);
-        numberOfRun = input.nextInt(); //Total number of runs completed (User entry)
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 0; i < numberOfRun; ++i) {
-            System.out.println("How long was the distance in miles?");
-            double distanceInMiles = input.nextDouble(); //Distance ran (User entry)
+        System.out.print("Enter your number of runs: "); //user input
+        int numberOfRun = scanner.nextInt();
 
-            System.out.println("What was the time in minutes?");
-            double timeInMinutes = input.nextDouble(); //Time spent during run (User entry)
+        double totalDistance = 0.0;
+        double totalTime = 0.0;
 
-            double averagePace = timeInMinutes / distanceInMiles; //Average calculation per run (Automatic)
+        for (int i = 0; i < numberOfRun; ++i) { //loop for finding # of miles and time for each run
+            System.out.println("Run #" + (i + 1));
 
-            System.out.println("The average pace is " + String.format("%.1f", averagePace)); //String.format("%.1f" is for decimal rounding!
+            System.out.print("Enter your distance: ");
+            double distance = scanner.nextDouble();
 
+            System.out.print("Enter your time: ");
+            double time = scanner.nextDouble();
+
+            totalDistance += distance; //updating value
+            totalTime += time; //updating value
         }
+
+        if (totalDistance > 0) {
+            double averagePace = totalTime / totalDistance;
+            System.out.printf("Average Pace: %.2f minutes per mile", averagePace);
+        } else {
+            System.out.println("Please try again..."); //error msg
+        }
+
+        scanner.close();
     }
 }
